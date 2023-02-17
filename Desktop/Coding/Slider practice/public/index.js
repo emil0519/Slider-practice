@@ -275,13 +275,32 @@ function carousel(){
     intervalID=setInterval(()=>{
       intervalManager(res);
     },3000);
-    indexRotationMap.addEventListener("mouseenter",()=>{clearInterval(intervalID)});
-    indexRotationMap.addEventListener("mouseout",()=>{
+    indexRotationMap.addEventListener("mouseenter",(event)=>{
+      const relatedTarget = event.relatedTarget;
+      console.log(relatedTarget);
+      if (relatedTarget === null || !indexRotationMap.contains(relatedTarget)) {
+        clearInterval(intervalID)
+      }
+      });
+    indexRotationMap.addEventListener("mouseout",(event)=>{
+      const relatedTarget = event.relatedTarget;
+      console.log(relatedTarget);
+      if (relatedTarget === null || !indexRotationMap.contains(relatedTarget)) {
       intervalID=setInterval(()=>{
         intervalManager(res);
       },3000);
+    }
     });
-
+    // indexText.addEventListener("mouseenter",(event)=>{
+    //   event.stopPropagation();
+    //   clearInterval(intervalID)});
+    // indexText.addEventListener("mouseout",(event)=>{
+    //     event.stopPropagation();
+    //     intervalID=setInterval(()=>{
+    //       intervalManager(res);
+    //     },3000);
+    //   });
+  
     // Dots event
     for (let i=0; i<dots.children.length; i++){
     dots.children[i].addEventListener("click",()=>{
