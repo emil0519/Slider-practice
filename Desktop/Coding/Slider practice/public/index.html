@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css" />
+    <title>STYLiSH</title>
+  </head>
+  <body>
+    <!-- header -->
+    
+    <header>
+      <header class="mobile-header">
+        <!-- 手機版搜尋框 -->
+           <div class="mobile-searching">
+             <input
+               class="mobile-search-bar"
+               type="text"
+               name="search"
+               id="search"
+               />
+         <!-- 手機按鈕 -->
+           <button class="button-mobile">
+             <img class="mobile-search-img" src="./images/search.png" />
+           </button>
+           </div>
+     </header>
+      <div class="header-white">
+        <div class="header-left">
+          <nav class="header-mobile-wrap">
+            <div class="block"></div>
+            <a href="./">
+              <img class="logo" src="./images/logo.png" />
+            </a>
+            <img class="search-mobile" src="./images/search.png">  
+          </nav>
+
+          <nav class="kinds">
+            <a href="./?category=women" class="women">女裝</a>
+            <p class="gray-p"></p>
+            <a href="./?category=men" class="men">男裝</a>
+            <p class="gray-p"></p>
+            <a href="./?category=accessories" class="accessories">配件</a>
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <img class="search-img-mobile" src="./images/search.png" />
+          <!-- 搜尋框（電腦版） -->
+          <div class="search">
+            <input
+              class="search-bar"
+              type="text"
+              name="search"
+              id="search"
+            />
+            <!-- 按鈕（電腦版） -->
+            <button class="button">
+              <img class="search-img" src="./images/search.png" />
+            </button>
+          </div>
+          <div>
+            <!-- 購物車 -->
+            <div class="shopping-cart">
+              <img class="cart" src="./images/cart.png" />
+              <!-- 導圓角的方塊 -->
+              <div class="goods-number">1</div>
+            </div>
+          </div>
+          <!-- 會員 -->
+            <img class="member" src="./images/member.png" />
+        </div>
+        
+      </div>
+        <div class="header-black"></div>
+        <div class="header-black-mobile">
+          <div class="list-wrap">
+            <a href="./?category=women" class="women-mobile"">女裝</a>
+            <p class="gray-p-mobile">|</p>
+            <a href="./?category=men" class="men-mobile">男裝</a>
+            <p class="gray-p-mobile">|</p>
+            <a href="./?category=accessories" class="accessories-mobile">配件</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </header>
+
+    <!-- 輪播圖 -->
+    <main>
+      <div class="index-rotation-map">
+
+        <div class="index-text">
+          <p class="title">於是<br />我也想要給你<br />一個那麼美好的自己</p>
+          <p class="author-name">不朽《與自己和好如初》</p>
+        </div>
+        <div class="img-option">
+          <div class="dot" data-dot="${campaigns.id}"></div>
+          <div class="dot" data-dot="${campaigns.id}"></div>
+          <div class="dot" data-dot="${campaigns.id}"></div>
+          <!-- <div class="dot1"></div>
+          <div class="dot2"></div>
+          <div class="dot3"></div>
+          <div class="dot4"></div>
+          <div class="dot5"></div> -->
+        </div> 
+      </div>
+    </main>
+    <main class="all-products">
+      <!-- 商品內容 -->
+      <section>
+        
+        <!-- <div class="products">
+          <div class="img-wrap">
+            <img class="product" src="./images/product.png" /> 
+          </div>
+          <div class="color-wrap">
+            <div class="goods-color1"></div>
+            <div class="goods-color2"></div>
+            <div class="goods-color3"></div>
+          </div> 
+          <p class="goods"></p>
+          <p class="price"></p>
+        </div>  -->
+      </section>
+    </main>
+
+    <!-- 關於STYLiSH -->
+    <footer class="footer-desktop">
+        <div class="contact-text">
+          <p class="contact">關於STYLiSH</p>
+          <p class="white-p"></p>
+          <p class="contact">服務條款</p>
+          <p class="white-p"></p>
+          <p class="contact">隱私政策</p>
+          <p class="white-p"></p>
+          <p class="contact">聯絡我們</p>
+          <p class="white-p"></p>
+          <p class="contact">FAQ</p>
+        </div>
+        <div class="contact-icon">
+          <img class="line" src="./images/line.png" />
+          <img class="twitter" src="./images/twitter.png" />
+          <img class="facebook" src="./images/facebook.png" />
+        </div>
+      <p class="copyright">© 2018. All rights reserved.</p>
+    </footer>
+    <!-- 關於 手機版 -->
+    <footer class="footer-mobile">
+      <div class="footer-wrap-mobile">
+        <div class="footer-left-mobile">
+          <div class="contact-text-mobile1">
+            <p class="contact-mobile">關於STYLiSH</p>
+            <p class="contact-mobile">服務條款</p>
+            <p class="contact-mobile">隱私政策</p>
+          </div>
+          <div class="contact-text-mobile2">
+            <p class="contact-mobile2">聯絡我們</p>
+            <p class="contact-mobile2">FAQ</p>
+            <p class="contact-mobile-more"></p>
+          </div>
+        </div>
+        <div class="footer-right-mobile">
+          <div class="contact-icon-mobile">
+          <img class="line-mobile" src="./images/line.png" />
+          <img class="twitter-mobile" src="./images/twitter.png" />
+          <img class="facebook-mobile" src="./images/facebook.png" />
+        </div>
+        </div>
+      </div>
+      <p class="copyright">© 2018. All rights reserved.</p>
+    </footer>
+    <footer class="chart-and-member">
+      <div class="chart-and-member-wrap">
+          <!-- 購物車 -->
+          <div class="shopping-mobile">
+            <div class="shopping-cart-mobile">
+              <img src="./images/cart-mobile.png" />
+              <!-- 導圓角的方塊 -->
+              <div class="goods-number">1</div>
+            </div>
+            <p class="shopping-text-mobile">購物車</p>
+          </div>
+          <!-- 會員 -->
+          <p class="footer-line"></p>
+          <div class="member-mobile">
+            <img src="./images/member-mobile.png" />
+            <p class="member-text-mobile">會員</p>
+          </div>
+      </div>
+      </div>
+    </footer>
+    <script src="./index.js"></script>
+  </body>
+</html>
