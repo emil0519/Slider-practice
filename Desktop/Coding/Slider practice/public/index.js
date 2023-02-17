@@ -32,8 +32,8 @@ const indexText =document.querySelector(".index-text");
 const imgOption =document.querySelector(".img-option");
 // const imgOptionAll =document.querySelectorAll(".img-option");
 // for (let i = 0; i < imgOptionAll.length; i++) {
-//   const dot = imgOptionAll[i];
-//   console.log(dot);
+//   const dot = imgOptionAll[1];
+//   dot.style.background="red"
 // }
 
 //https://api.appworks-school.tw/api/1.0/marketing/campaigns
@@ -258,16 +258,16 @@ function carousel(){
       indexRotationMap.appendChild(newIMG);
     })
     // intervalManager(res);
-    let num=0
-    setInterval(()=>{
-      num+=1
-      if(num>=3){
-        num=0
-      }
-      console.log(num);
-    },1000);
+    // let num=-1
+    // setInterval(()=>{
+    //   num+=1
+    //   if(num>=3){
+    //     num=0
+    //   }
+    //   console.log(num);
+    // },1000);
 
-    // setInterval(()=>intervalManager(res),3000);
+    setInterval(()=>intervalManager(res),1000);
   //   res.data.map(info=>{
   //     let newIMG=document.createElement("img");
   //     newIMG.innerHTML=`<img class="index-img" src=${info.picture}>`;
@@ -275,15 +275,23 @@ function carousel(){
   // })
   })
 }
+let counter=-1;
 
 function intervalManager(res){
   // console.log(res);
   let translateScale=-1794;
-  let i=0
+  // let translateScale=1794;
+  // let translateRatio=1794;
+  counter++;
+ if(counter>=res.data.length){
+  counter=0
+ }
+ console.log(counter);
   // for(let x=0; x<res.data.length; x++){
-    // indexRotationMap.style.transform= `translateX(${translateScale*x}px)`
-    i+=1
-    console.log(i);
+
+    indexRotationMap.style.transform= `translateX(${translateScale*counter}px)`
+    // i+=1
+    // console.log(i);
   // }
 }
 
