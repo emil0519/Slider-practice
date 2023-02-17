@@ -38,8 +38,10 @@ const imgOption =document.querySelector(".img-option");
 
 //https://api.appworks-school.tw/api/1.0/marketing/campaigns
 
-
-
+let counter=0;
+const dots=document.querySelector(".img-option")
+let intervalID;
+let translateScale=-100;
 
 
 // function getCampaigns(){
@@ -251,48 +253,70 @@ function carousel(){
   fetch("https://api.appworks-school.tw/api/1.0/marketing/campaigns")
   .then(res=> res.json())
   .then(res=> {
-    res.data.map(info=>{
+    res.data.map((info,index)=>{
+      // create image
       let newIMG = document.createElement("img");
       newIMG.setAttribute("class", "index-img");
       newIMG.setAttribute("src", info.picture);
       indexRotationMap.appendChild(newIMG);
+      // create words
+      let newWords= document.createElement("p");
+      newWords.setAttribute("class", "title");
+      newWords.innerText=info.story;
+      indexText.appendChild(newWords);
+      // create dots 
+      let newDots=document.createElement("img");
+      newDots.setAttribute("class", "dot");
+      newDots.setAttribute("id", `${index}`);
+      imgOption.appendChild(newDots);
+      dots.children[0].style.background="gold";
     })
-    // intervalManager(res);
-    // let num=-1
-    // setInterval(()=>{
-    //   num+=1
-    //   if(num>=3){
-    //     num=0
-    //   }
-    //   console.log(num);
-    // },1000);
+    // Interval and events handler
+    intervalID=setInterval(()=>{
+      intervalManager(res);
+    },3000);
+    indexRotationMap.addEventListener("mouseenter",()=>{clearInterval(intervalID)});
+    indexRotationMap.addEventListener("mouseout",()=>{
+      intervalID=setInterval(()=>{
+        intervalManager(res);
+      },3000);
+    });
 
-    setInterval(()=>intervalManager(res),1000);
-  //   res.data.map(info=>{
-  //     let newIMG=document.createElement("img");
-  //     newIMG.innerHTML=`<img class="index-img" src=${info.picture}>`;
-  //     indexRotationMap.appendChild(newIMG);
-  // })
-  })
+    // Dots event
+    for (let i=0; i<dots.children.length; i++){
+    dots.children[i].addEventListener("click",()=>{
+      counter=i;
+      for (let j = 0; j < dots.children.length; j++) {
+        if (j === i) {
+          dots.children[j].style.background = "gold";
+        } else {
+          dots.children[j].style.background = "grey";
+        }
+      }
+      indexRotationMap.style.transform= `translateX(${translateScale*counter}%)`;
+      clearInterval(intervalID);
+      setTimeout(()=>{intervalID=setInterval(()=>{
+        intervalManager(res);
+      },3000);
+    },100);
+    })}})
 }
-let counter=-1;
+
 
 function intervalManager(res){
-  // console.log(res);
-  let translateScale=-1794;
-  // let translateScale=1794;
-  // let translateRatio=1794;
   counter++;
  if(counter>=res.data.length){
-  counter=0
+  counter=0;
  }
- console.log(counter);
-  // for(let x=0; x<res.data.length; x++){
-
-    indexRotationMap.style.transform= `translateX(${translateScale*counter}px)`
-    // i+=1
-    // console.log(i);
-  // }
+for (let i=0; i<dots.children.length; i++){
+  // Style of dots
+  if(parseInt(dots.children[i].getAttribute("id"))===counter){
+    dots.children[i].style.background="gold";
+  }else{
+    dots.children[i].style.background="grey";
+  }
+}
+  indexRotationMap.style.transform= `translateX(${translateScale*counter}%)`
 }
 
 
